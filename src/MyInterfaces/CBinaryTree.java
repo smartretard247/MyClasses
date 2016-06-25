@@ -89,16 +89,16 @@ public class CBinaryTree<T> implements IBinaryTree<T> {
         CBinaryTreeNode toFind = new CBinaryTreeNode(item);
         
         if(currentNode.item == null) throw new BinaryTreeException("Node Not Found");
-        if(currentNode.compareTo(toFind) == 0) return currentNode; //found match at root
+        if(currentNode.item.equals(toFind.item)) return currentNode; //found match at root
         
         boolean leftSide = currentNode.compareTo(toFind) > 0; //should we look in left or right side of tree
         if(leftSide) {
             if(currentNode.left == null) throw new BinaryTreeException("Node Not Found"); //base case, left object is null
-            if(currentNode.left.compareTo(toFind) == 0) return currentNode.left; //found match on left side
+            if(currentNode.left.equals(toFind.item)) return currentNode.left; //found match on left side
             return findElement(currentNode.left, item); //recur down the left side of tree
         } else { //search ride side of tree
             if(currentNode.right == null) throw new BinaryTreeException("Node Not Found"); //base case, right object is null
-            if(currentNode.right.compareTo(toFind) == 0) return currentNode.right; //found match on right side
+            if(currentNode.right.equals(toFind.item)) return currentNode.right; //found match on right side
             return findElement(currentNode.right, item); //recur down the right side of tree
         }
     }
