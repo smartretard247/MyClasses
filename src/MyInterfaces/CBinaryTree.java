@@ -22,8 +22,8 @@ public class CBinaryTree<T> implements IBinaryTree<T> {
         setRoot(theRoot); //initialize the root
     }
     
-    public CBinaryTree(String str) {
-        this(new Scanner(str),false);
+    public CBinaryTree(String name) {
+        this.nameOfTree = name;
     }
     
     public CBinaryTree(Scanner theScanner, boolean ignoreSpaces) {
@@ -234,7 +234,7 @@ public class CBinaryTree<T> implements IBinaryTree<T> {
         foundNode = (CBinaryTreeNode)test.findElement(0); //0 should not exist in the tree
         
         //next test, create using string of characters
-        CBinaryTree<String> test2 = new CBinaryTree("B I N A R Y T R E E"); //use the scanner to parse the string
+        CBinaryTree<String> test2 = new CBinaryTree(new Scanner("B I N A R Y T R E E"),false); //use the scanner to parse the string
         test2.setName("My Binary Tree");
         System.out.println(test2);
         System.out.print("Finding all elements: ");
